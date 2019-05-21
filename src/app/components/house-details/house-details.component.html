@@ -1,0 +1,42 @@
+<!-- show loader if we don't have result -->
+<app-loader *ngIf="loader"></app-loader>
+
+<!-- main container -->
+<div class="container pt-3" *ngIf="house">
+  <!-- main header with: address, city, postcode -->
+  <header>
+    <h3 class="m-0 pb-2">
+      {{ house.Adres }}
+    </h3>
+    <p class="m-0">{{ house.Postcode }} {{ house.Plaats }}</p>
+    <h5 [innerHTML]="house.PrijsGeformatteerd" class="pt-2"></h5>
+  </header>
+
+  <div class="row">
+    <!-- slider with house images -->
+    <div class="col-md-12 col-lg-6">
+      <div class="house__slider">
+        <ngb-carousel *ngIf="houseImages" class="mb-3">
+          <ng-template ngbSlide *ngFor="let image of houseImages">
+            <img [src]="image.Url" alt="Random first slide" />
+          </ng-template>
+        </ngb-carousel>
+      </div>
+    </div>
+
+    <!-- slider with house images -->
+    <div class="col-md-12 col-lg-6">
+      <!-- show general details -->
+      <app-list [title]="'General'" [items]="list.general"></app-list>
+
+      <!-- show construction details -->
+      <app-list [title]="'Construction'" [items]="list.construction"></app-list>
+    </div>
+  </div>
+
+  <!-- show energy details -->
+  <app-list [title]="'Energy'" [items]="list.energy"></app-list>
+
+  <!-- show full description -->
+  <p class="text-dark" [innerHTML]="house.VolledigeOmschrijving"></p>
+</div>

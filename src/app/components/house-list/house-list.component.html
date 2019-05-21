@@ -1,0 +1,19 @@
+<div class="container pt-3">
+  <!-- search component -->
+  <div class="app-search-container">
+    <app-search (manageFormChangeEv)="manageFormChange($event)"></app-search>
+  </div>
+
+  <!-- results container -->
+  <div class="results-container pt-3">
+    <app-loader *ngIf="loading"></app-loader>
+    <ng-container *ngIf="fundaService.houses.length">
+      <ul class="list-unstyled">
+        <ng-container *ngFor="let item of fundaService.houses">
+          <!-- house item in the result list -->
+          <app-house-list-item [item]="item"></app-house-list-item>
+        </ng-container>
+      </ul>
+    </ng-container>
+  </div>
+</div>

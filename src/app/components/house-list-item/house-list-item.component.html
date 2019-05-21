@@ -1,0 +1,15 @@
+<li class="media pb-3" *ngIf="item">
+  <img [src]="item.FotoMedium" class="mr-3" [alt]="item.Adres" />
+  <div class="media-body">
+    <h5 class="mt-0 mb-1">
+      <a routerLink="/house-details/{{ item.Id }}">{{ item.Adres }}</a>
+    </h5>
+    <p class="m-0">
+      Postcode/City: {{ item.Postcode }} - {{ item.Woonplaats }}
+    </p>
+    <p class="m-0">Price: {{ item.Koopprijs }}</p>
+    <p class="m-0">Offered since: {{ item.AangebodenSindsTekst }}</p>
+    <p class="m-0">Agency: {{ item.MakelaarNaam }}</p>
+    <p class="m-0">Status: {{ item.VerkoopStatus }}</p>
+  </div>
+</li>

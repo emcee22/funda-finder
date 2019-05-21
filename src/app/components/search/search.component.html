@@ -1,0 +1,18 @@
+<form [formGroup]="form" class="pb-3">
+  <div class="form-group">
+    <label for="city"><h3>FundaFinder</h3></label>
+    <select
+      class="form-control"
+      id="city"
+      formControlName="city"
+      placeholder="Select a city..."
+    >
+      <option value="" disabled selected>
+        -- select a city from the dropdown --
+      </option>
+      <option value="amsterdam">Amsterdam</option>
+      <option value="rotterdam">Rotterdam</option>
+      <option value="haarlem">Haarlem</option>
+    </select>
+  </div>
+</form>
